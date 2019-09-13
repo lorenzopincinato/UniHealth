@@ -1,0 +1,15 @@
+C:\Users\gabriel.andrade\Projects\UniHealth\UniHealth\bin\Debug\UniHealth.exe.config
+C:\Users\gabriel.andrade\Projects\UniHealth\UniHealth\bin\Debug\UniHealth.exe
+C:\Users\gabriel.andrade\Projects\UniHealth\UniHealth\bin\Debug\UniHealth.pdb
+C:\Users\gabriel.andrade\Projects\UniHealth\UniHealth\obj\Debug\UniHealth.csprojAssemblyReference.cache
+C:\Users\gabriel.andrade\Projects\UniHealth\UniHealth\obj\Debug\MainWindow.g.cs
+C:\Users\gabriel.andrade\Projects\UniHealth\UniHealth\obj\Debug\App.g.cs
+C:\Users\gabriel.andrade\Projects\UniHealth\UniHealth\obj\Debug\UniHealth_MarkupCompile.cache
+C:\Users\gabriel.andrade\Projects\UniHealth\UniHealth\obj\Debug\UniHealth_MarkupCompile.lref
+C:\Users\gabriel.andrade\Projects\UniHealth\UniHealth\obj\Debug\MainWindow.baml
+C:\Users\gabriel.andrade\Projects\UniHealth\UniHealth\obj\Debug\UniHealth.g.resources
+C:\Users\gabriel.andrade\Projects\UniHealth\UniHealth\obj\Debug\UniHealth.Properties.Resources.resources
+C:\Users\gabriel.andrade\Projects\UniHealth\UniHealth\obj\Debug\UniHealth.csproj.GenerateResource.cache
+C:\Users\gabriel.andrade\Projects\UniHealth\UniHealth\obj\Debug\UniHealth.csproj.CoreCompileInputs.cache
+C:\Users\gabriel.andrade\Projects\UniHealth\UniHealth\obj\Debug\UniHealth.exe
+C:\Users\gabriel.andrade\Projects\UniHealth\UniHealth\obj\Debug\UniHealth.pdb
