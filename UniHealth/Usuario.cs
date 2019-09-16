@@ -8,18 +8,18 @@ namespace UniHealth
 {
     public class Usuario
     {
-        private String CPFUsuario;
-        private String RGUsuario;
+        private int cpfUsuario;
+        private String rgUsuario;
         private String nomeUsuario;
         private String senhaUsuario;
         private DateTime dataInclusaoUsuario;
         private StatusUsuario statusUsuario;
         private PerfilUsuario perfilUsuario; 
 
-        public Usuario(string cPFUsuario, string rGUsuario, string nomeUsuario, string senhaUsuario, DateTime dataInclusaoUsuario, StatusUsuario statusUsuario, PerfilUsuario perfilUsuario)
+        public Usuario(int cpfUsuario, string rgUsuario, string nomeUsuario, string senhaUsuario, DateTime dataInclusaoUsuario, StatusUsuario statusUsuario, PerfilUsuario perfilUsuario)
         {
-            CPFUsuario = cPFUsuario;
-            RGUsuario = rGUsuario;
+            this.cpfUsuario = cpfUsuario;
+            this.rgUsuario = rgUsuario;
             this.nomeUsuario = nomeUsuario;
             this.senhaUsuario = senhaUsuario;
             this.dataInclusaoUsuario = dataInclusaoUsuario;
@@ -27,8 +27,8 @@ namespace UniHealth
             this.perfilUsuario = perfilUsuario;
         }
 
-        public string CPFUsuario1 { get => CPFUsuario; set => CPFUsuario = value; }
-        public string RGUsuario1 { get => RGUsuario; set => RGUsuario = value; }
+        public int CPFUsuario { get => cpfUsuario; set => cpfUsuario = value; }
+        public string RGUsuario { get => rgUsuario; set => rgUsuario = value; }
         public string NomeUsuario { get => nomeUsuario; set => nomeUsuario = value; }
         public string SenhaUsuario { get => senhaUsuario; set => senhaUsuario = value; }
         public DateTime DataInclusaoUsuario { get => dataInclusaoUsuario; set => dataInclusaoUsuario = value; }

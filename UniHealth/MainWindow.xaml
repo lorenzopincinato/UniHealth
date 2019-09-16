@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UniHealth"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="UniHealth - Login" Height="412" Width="800">
+    <Grid x:Name="frmUnihealth" Margin="0,0,0,-2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="29*"/>
+            <ColumnDefinition Width="43*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="lblUnihealth" Content="UniHealth" Margin="313,42,0,0" VerticalAlignment="Top" FontSize="36" HorizontalAlignment="Left" Grid.ColumnSpan="2" Height="58" Width="168"/>
+        <Label x:Name="lblLogin" Content="Login" HorizontalAlignment="Left" Margin="51,115,0,0" VerticalAlignment="Top" FontSize="24" Grid.Column="1" Height="42" Width="69"/>
+        <Label x:Name="lblUsuario" Content="Usuário:" HorizontalAlignment="Left" Margin="259,190,0,0" VerticalAlignment="Top" Height="26" Width="53"/>
+        <Label x:Name="lblSenha" Content="Senha:" HorizontalAlignment="Left" Margin="259,247,0,0" VerticalAlignment="Top" Height="26" Width="45"/>
+        <Label x:Name="lblCriarConta" Content="Não possui conta. Clique aqui:" HorizontalAlignment="Left" Margin="267,337,0,0" VerticalAlignment="Top" Height="26" Width="178" RenderTransformOrigin="0.514,1.846" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtUsuario" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="28,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210"/>
+        <TextBox x:Name="txtSenha" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="28,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210"/>
+        <Button x:Name="btnLogin" Content="Login" HorizontalAlignment="Left" Margin="51,302,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1.773,0.35" Grid.Column="1"/>
+        <Button x:Name="btnCriarConta" Content="Criar Conta" Grid.Column="1" HorizontalAlignment="Left" Margin="131,340,0,0" VerticalAlignment="Top" Width="75" Click="BtnCriarConta_Click"/>
     </Grid>
 </Window>

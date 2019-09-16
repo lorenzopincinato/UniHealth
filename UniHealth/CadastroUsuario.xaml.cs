@@ -10,24 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace UniHealth
 {
     /// <summary>
-    /// Interação lógica para MainWindow.xam
+    /// Lógica interna para CadastroUsuario.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class CadastroUsuario : Window
     {
-        public MainWindow()
+        public CadastroUsuario()
         {
             InitializeComponent();
-        }
-
-        private void BtnCriarConta_Click(object sender, RoutedEventArgs e)
-        {
-            new CadastroUsuario().Show();
         }
     }
 }
