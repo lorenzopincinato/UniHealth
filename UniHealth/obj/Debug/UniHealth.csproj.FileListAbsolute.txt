@@ -13,3 +13,5 @@ C:\Users\gabriel.andrade\Projects\UniHealth\UniHealth\obj\Debug\UniHealth.csproj
 C:\Users\gabriel.andrade\Projects\UniHealth\UniHealth\obj\Debug\UniHealth.csproj.CoreCompileInputs.cache
 C:\Users\gabriel.andrade\Projects\UniHealth\UniHealth\obj\Debug\UniHealth.exe
 C:\Users\gabriel.andrade\Projects\UniHealth\UniHealth\obj\Debug\UniHealth.pdb
+C:\Users\gabriel.andrade\Projects\UniHealth\UniHealth\obj\Debug\CadastroUsuario.g.cs
+C:\Users\gabriel.andrade\Projects\UniHealth\UniHealth\obj\Debug\CadastroUsuario.baml
