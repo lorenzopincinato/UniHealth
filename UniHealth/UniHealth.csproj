@@ -58,9 +58,6 @@
     <Compile Include="CadastroUsuario.xaml.cs">
       <DependentUpon>CadastroUsuario.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PerfilUsuario.cs" />
-    <Compile Include="StatusUsuario.cs" />
-    <Compile Include="Usuario.cs" />
     <Page Include="CadastroUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
