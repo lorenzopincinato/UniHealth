@@ -1,0 +1,26 @@
+﻿<Window x:Class="UniHealth.AlteraSenha"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UniHealth"
+        mc:Ignorable="d"
+        Title="UniHealth - Alterar Senha" Height="474" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="43*"/>
+            <ColumnDefinition Width="353*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="lblUnihealth" Content="UniHealth" Margin="227,42,0,0" VerticalAlignment="Top" FontSize="36" HorizontalAlignment="Left" Height="58" Width="168" Grid.Column="1"/>
+        <Label x:Name="lblAlterarSenha" Content="Alterar Senha" HorizontalAlignment="Left" Margin="227,105,0,0" VerticalAlignment="Top" FontSize="24" Height="42" Width="155" Grid.Column="1"/>
+        <Label x:Name="lblSenhaAtual" Content="Senha atual:" HorizontalAlignment="Left" Margin="140,181,0,0" VerticalAlignment="Top" Height="26" Width="79" Grid.Column="1"/>
+        <Label x:Name="lblSenhaNova" Content="Senha nova:" HorizontalAlignment="Left" Margin="140,242,0,0" VerticalAlignment="Top" Height="26" Width="79" Grid.Column="1"/>
+        <Button x:Name="btnAlterarSenha" Content="Alterar Senha" HorizontalAlignment="Left" Margin="279,385,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.547,2.6" Grid.Column="1" Click="BtnAlterarSenha_Click" Panel.ZIndex="3"/>
+        <PasswordBox x:Name="txtSenhaNova" Margin="279,242,227,0" VerticalAlignment="Top" Height="24" Grid.Column="1" Panel.ZIndex="1"/>
+        <Label x:Name="lblConfSenhaNova" Content="Confirmar senha nova:" HorizontalAlignment="Left" Margin="140,297,0,0" VerticalAlignment="Top" Height="33" Width="133" Grid.Column="1"/>
+        <PasswordBox x:Name="txtConfSenhaNova" Margin="278,297,227,0" VerticalAlignment="Top" Height="24" Grid.Column="1" Panel.ZIndex="2"/>
+        <Label x:Name="lblMensagem" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="113,335,0,0" VerticalAlignment="Top" RenderTransformOrigin="-10,0.385" Width="387"/>
+        <PasswordBox x:Name="txtSenhaAtual" Margin="279,181,227,0" VerticalAlignment="Top" Height="24" Grid.Column="1" Panel.ZIndex="1"/>
+
+    </Grid>
+</Window>

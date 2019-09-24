@@ -46,5 +46,18 @@ namespace UniHealth
                    statusUsuario == usuario.statusUsuario &&
                    perfilUsuario == usuario.perfilUsuario;
         }
+
+        public override int GetHashCode()
+        {
+            var hashCode = 453413805;
+            hashCode = hashCode * -1521134295 + cpfUsuario.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(rgUsuario);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(nomeUsuario);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(senhaUsuario);
+            hashCode = hashCode * -1521134295 + dataInclusaoUsuario.GetHashCode();
+            hashCode = hashCode * -1521134295 + statusUsuario.GetHashCode();
+            hashCode = hashCode * -1521134295 + perfilUsuario.GetHashCode();
+            return hashCode;
+        }
     }
 }

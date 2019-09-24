@@ -55,12 +55,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AlteraSenha.xaml.cs">
+      <DependentUpon>AlteraSenha.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CadastroUsuario.xaml.cs">
       <DependentUpon>CadastroUsuario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ModoVerificacaoSenha.cs" />
     <Compile Include="PerfilUsuario.cs" />
     <Compile Include="StatusUsuario.cs" />
     <Compile Include="Usuario.cs" />
+    <Page Include="AlteraSenha.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CadastroUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
