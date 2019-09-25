@@ -22,7 +22,7 @@ namespace UniHealth
     {
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
 
         private void BtnCriarConta_Click(object sender, RoutedEventArgs e)
