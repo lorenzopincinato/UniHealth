@@ -1,8 +1,13 @@
-﻿namespace UniHealth.Application.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace UniHealth.Application.Models
 {
-    public enum PerfilUsuario
+    public class PerfilUsuario
     {
-        Administrador = 1,
-        Comum = 2
+        [Key]
+        public int Id { get; set; }
+
+        public string Tipo { get; set; }
     }
 }
+

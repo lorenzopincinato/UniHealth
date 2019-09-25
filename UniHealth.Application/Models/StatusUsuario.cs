@@ -1,9 +1,11 @@
-﻿namespace UniHealth.Application.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace UniHealth.Application.Models
 {
-    public enum StatusUsuario
+    public class StatusUsuario
     {
-        Normal = 1,
-        Bloqueado = 2,
-        Excluido = 3
+        [Key]
+        public int Id { get; set; }
+        public string Estado { get; set; }
     }
 }
