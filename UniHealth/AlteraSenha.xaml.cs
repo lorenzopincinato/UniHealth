@@ -2,6 +2,7 @@
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Media;
+using UniHealth.Application.Applications;
 using UniHealth.Application.Models;
 
 namespace UniHealth
@@ -10,7 +11,11 @@ namespace UniHealth
     /// Lógica interna para AlteraSenha.xaml
     /// </summary>
     public partial class AlteraSenha : Window
-    {       
+    {
+        private readonly IUsuarioApplication _usuarioApplication;
+
+        private readonly string _cpf;
+
         private bool senhaEhValida;
 
         private const int maxNumerosCrescentesConsecutivosPermitidos = 3;
@@ -26,10 +31,13 @@ namespace UniHealth
         private int qtdNumeros;
         private int forcaSenha;
 
-        public AlteraSenha()
+        public AlteraSenha(IUsuarioApplication usuarioApplication, string cpf)
         {
+            _usuarioApplication = usuarioApplication;
+            _cpf = cpf;
+
             InitializeComponent();
-        }     
+        }
 
         private void BtnAlterarSenha_Click(object sender, RoutedEventArgs e)
         {
@@ -119,9 +127,13 @@ namespace UniHealth
                 {
                     lblMensagem.Content = "A senha nova não pode ser igual a senha atual!";
                     return false;
-                }  
-                
-                // #TODO: verificar se o campo senhaAtual realmente é a senha atual do usuário -> consulta SQL
+                }
+
+                if (!_usuarioApplication.LoginUser(_cpf, senhaAtual))
+                {
+                    lblMensagem.Content = "A senha atual está inválida!";
+                    return false;
+                }
             }            
             if (!senhaNova.Equals(confSenhaNova))
             {
@@ -159,6 +171,7 @@ namespace UniHealth
                 return false;
             }
 
+            _usuarioApplication.UpdatePassword(_cpf, senhaNova);
             return true;
         }
         

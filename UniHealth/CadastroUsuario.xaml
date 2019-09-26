@@ -20,7 +20,7 @@
         <Label x:Name="lblRG" Content="RG:" HorizontalAlignment="Left" Margin="311.5,215,0,0" VerticalAlignment="Top" Height="26" Width="45" Grid.Column="1"/>
         <TextBox x:Name="txtRG" Height="23" Margin="449.5,215,30,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" Grid.Column="1"/>
         <Label x:Name="lblSenha" Content="Senha:" HorizontalAlignment="Left" Margin="311.5,276,0,0" VerticalAlignment="Top" Height="26" Width="45" Grid.Column="1"/>
-        <Button x:Name="btnCadastrar" Content="Cadastrar" HorizontalAlignment="Left" Margin="259,376,0,0" VerticalAlignment="Top" Width="76" RenderTransformOrigin="0.547,2.6" Grid.Column="1"/>
+        <Button x:Name="btnCadastrar" Content="Cadastrar" HorizontalAlignment="Left" Margin="259,376,0,0" VerticalAlignment="Top" Width="76" RenderTransformOrigin="0.547,2.6" Grid.Column="1" Click="BtnCadastrar_Click_1"/>
         <PasswordBox x:Name="txtSenha" Margin="449.5,276,30,0" VerticalAlignment="Top" Width="210" Height="24" Grid.Column="1"/>
         <Label x:Name="lblConfSenha" Content="Confirmar senha:" HorizontalAlignment="Left" Margin="311.5,331,0,0" VerticalAlignment="Top" Height="26" Width="104" Grid.Column="1"/>
         <PasswordBox x:Name="txtConfSenha" Margin="449.5,331,30,0" VerticalAlignment="Top" Width="210" Height="24" Grid.Column="1"/>

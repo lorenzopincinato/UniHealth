@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UniHealth.Application.Applications;
 
 namespace UniHealth
 {
@@ -20,14 +21,31 @@ namespace UniHealth
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private readonly IUsuarioApplication _usuarioApplication;
+
+        public MainWindow(IUsuarioApplication usuarioApplication)
         {
-            InitializeComponent();            
+            _usuarioApplication = usuarioApplication;
+
+            InitializeComponent();
         }
 
         private void BtnCriarConta_Click(object sender, RoutedEventArgs e)
         {
-            new CadastroUsuario().Show();
-        }      
+            new CadastroUsuario(_usuarioApplication).Show();
+        }
+
+        private void BtnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            if (_usuarioApplication.LoginUser(txtUsuario.Text, txtSenha.Password))
+            {
+                new AlteraSenha(_usuarioApplication, txtUsuario.Text).Show();
+            }
+            else
+            {
+                lblErros.Content = "O usuário informado não existe ou a senha está inválida!";
+                txtSenha.Clear();
+            }
+        }
     }
 }

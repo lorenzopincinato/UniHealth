@@ -19,6 +19,8 @@ namespace UniHealth.Application.Models
         public int PerfilUsuarioId { get; set; }
         public PerfilUsuario PerfilUsuario { get; set; }
 
+        public Usuario() { }
+
         public Usuario(string cpf, string rg, string nome, string senha, DateTime inclusao, StatusUsuario statusUsuario, PerfilUsuario perfilUsuario)
         {
             CPF = cpf;

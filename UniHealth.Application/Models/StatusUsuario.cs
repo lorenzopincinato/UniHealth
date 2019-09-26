@@ -7,5 +7,7 @@ namespace UniHealth.Application.Models
         [Key]
         public int Id { get; set; }
         public string Estado { get; set; }
+
+        public StatusUsuario() { }
     }
 }

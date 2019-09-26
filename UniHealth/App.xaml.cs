@@ -20,13 +20,19 @@ namespace UniHealth
             ConfigureServices(serviceCollection);
 
             ServiceProvider = serviceCollection.BuildServiceProvider();
+
+            MainWindow mainWindow = new MainWindow(ServiceProvider.GetService<IUsuarioApplication>());
+            mainWindow.Show();
         }
 
         private void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton(x => new DbUniHealthContext(""));
+            services.AddSingleton(x => new DbUniHealthContext());
 
             services.AddSingleton<IUsuarioRepository, UsuarioRepository>();
+            services.AddSingleton<IStatusUsuarioRepository, StatusUsuarioRepository>();
+            services.AddSingleton<IPerfilUsuarioRepository, PerfilUsuarioRepository>();
+
             services.AddSingleton<IUsuarioApplication, UsuarioApplication>();
         }
     }

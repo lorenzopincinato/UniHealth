@@ -71,11 +71,16 @@
       <DependentUpon>201909242338562_Add-Seed.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ModoVerificacaoSenha.cs" />
     <Compile Include="Models\PerfilUsuario.cs" />
     <Compile Include="Models\StatusUsuario.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IPerfilUsuarioRepository.cs" />
+    <Compile Include="Repositories\IStatusUsuarioRepository.cs" />
     <Compile Include="Repositories\IUsuarioRepository.cs" />
+    <Compile Include="Repositories\PerfilUsuarioRepository.cs" />
+    <Compile Include="Repositories\StatusUsuarioRepository.cs" />
     <Compile Include="Repositories\UsuarioRepository.cs" />
   </ItemGroup>
   <ItemGroup>

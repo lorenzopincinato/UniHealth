@@ -13,9 +13,9 @@ namespace UniHealth.Application.Repositories
             _dbContext = dataContext;
         }
 
-        public async Task<Usuario> GetUsuarioByCPFAsync(string cpf)
+        public Usuario GetUsuarioByCPF(string cpf)
         {
-            return await _dbContext.Usuarios.FindAsync(cpf);
+            return _dbContext.Usuarios.FirstOrDefault(x => x.CPF == cpf);
         }
 
         public async Task AddUsuarioAsync(Usuario usuario)
@@ -24,12 +24,12 @@ namespace UniHealth.Application.Repositories
             await _dbContext.SaveChangesAsync();
         }
 
-        public async Task UpdateUsuarioAsync(Usuario usuario)
+        public void UpdateUsuario(Usuario usuario)
         {
-            var usuarioAtualizado = await _dbContext.Usuarios.FindAsync(usuario.CPF);
+            var usuarioAtualizado = _dbContext.Usuarios.FirstOrDefault(x => x.CPF == usuario.CPF);
             usuarioAtualizado = usuario;
 
-            await _dbContext.SaveChangesAsync();
+            _dbContext.SaveChanges();
         }
 
         public async Task DeleteUsuarioByCPFAsync(string cpf)

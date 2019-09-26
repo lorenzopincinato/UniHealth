@@ -6,8 +6,9 @@ namespace UniHealth.Application.Models
     {
         [Key]
         public int Id { get; set; }
-
         public string Tipo { get; set; }
+
+        public PerfilUsuario() { }
     }
 }
 
