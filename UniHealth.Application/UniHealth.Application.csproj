@@ -82,6 +82,8 @@
     <Compile Include="Repositories\PerfilUsuarioRepository.cs" />
     <Compile Include="Repositories\StatusUsuarioRepository.cs" />
     <Compile Include="Repositories\UsuarioRepository.cs" />
+    <Compile Include="Utils\ValidaCPF.cs" />
+    <Compile Include="Utils\ValidaSenha.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

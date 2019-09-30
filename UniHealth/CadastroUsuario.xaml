@@ -24,6 +24,7 @@
         <PasswordBox x:Name="txtSenha" Margin="449.5,276,30,0" VerticalAlignment="Top" Width="210" Height="24" Grid.Column="1"/>
         <Label x:Name="lblConfSenha" Content="Confirmar senha:" HorizontalAlignment="Left" Margin="311.5,331,0,0" VerticalAlignment="Top" Height="26" Width="104" Grid.Column="1"/>
         <PasswordBox x:Name="txtConfSenha" Margin="449.5,331,30,0" VerticalAlignment="Top" Width="210" Height="24" Grid.Column="1"/>
+        <Label x:Name="lblErro" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="26,162,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
