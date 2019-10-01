@@ -30,49 +30,41 @@ namespace UniHealth.Application.Utils
                 if (string.IsNullOrEmpty(senhaAtual))
                 {
                     throw new Exception("A senha atual não pode ser nula!");
-                    return false;
                 }
                 else
                 if (senhaAtual.Equals(senhaNova))
                 {
                     throw new Exception("A senha nova não pode ser igual a senha atual!");
-                    return false;
                 }
             }
             if (!senhaNova.Equals(confSenhaNova))
             {
                 throw new Exception("A confirmação da senha nova não é igual a senha nova!");
-                return false;
             }
             else
             if (senhaNova.Length < 7 || senhaNova.Length > 11)
             {
                 throw new Exception("A senha nova deve conter entre 7 e 11 caracteres!");
-                return false;
             }
             else
             if (!regexSenha.IsMatch(senhaNova))
             {
                 throw new Exception("A senha nova não deve conter caracteres especiais nem caracteres matemáticos!");
-                return false;
             }
             else
             if (getQtdDeLetras(senhaNova) < minQtdLetras)
             {
                 throw new Exception($"A senha nova deve conter pelo menos {minQtdLetras} letras!");
-                return false;
             }
             else
             if (getQtdDeNumeros(senhaNova) < minQtdNumeros)
             {
                 throw new Exception($"A senha nova deve conter pelo menos {minQtdNumeros} números!");
-                return false;
             }
             else
             if (temCaracteresRepetidos(senhaNova))
             {
                 throw new Exception($"A senha nova não pode conter {maxCaracteresConsecutivosPermitidos + 1} caracteres repetidos em sequência!");
-                return false;
             }
 
             return true;

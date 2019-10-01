@@ -24,7 +24,7 @@ namespace UniHealth
 
         private void BtnCadastrar_Click_1(object sender, RoutedEventArgs e)
         {
-            if (ValidaCPF.IsCpf(txtCPF.Text))
+            if (ValidacaoUtils.CPFValido(txtCPF.Text))
             {
                 if (txtRG.Text != "")
                 {
@@ -34,9 +34,9 @@ namespace UniHealth
                         {
                             if (_validaSenha.ValidarRestricaoSenha(ModoVerificacaoSenha.Adicionando, txtSenha.Password, txtConfSenha.Password))
                             {
-                                if (!_usuarioApplication.CPFExists(txtCPF.Text))
+                                if (!_usuarioApplication.CPFExiste(txtCPF.Text))
                                 {
-                                    _usuarioApplication.CreateUsuario(txtCPF.Text, txtRG.Text, txtUsuario.Text, txtSenha.Password);
+                                    _usuarioApplication.CadastrarUsuario(txtCPF.Text, txtRG.Text, txtUsuario.Text, txtSenha.Password);
 
                                     lblErro.Content = "Usuário cadastrado com sucesso!";
 

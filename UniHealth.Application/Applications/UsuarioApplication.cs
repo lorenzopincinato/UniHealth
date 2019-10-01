@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
+using UniHealth.Application.Exceptions;
 using UniHealth.Application.Models;
 using UniHealth.Application.Repositories;
+using UniHealth.Application.Utils;
 
 namespace UniHealth.Application.Applications
 {
@@ -18,7 +20,7 @@ namespace UniHealth.Application.Applications
             _perfilUsuarioRepository = perfilUsuarioRepository;
         }
 
-        public async Task CreateUsuario(string cpf, string rg, string nome, string senha)
+        public async Task CadastrarUsuario(string cpf, string rg, string nome, string senha)
         {
             var statusUsuario = _statusUsuarioRepository.GetStatusUsuarioByEstadoAsync("Normal");
             var perfilUsuario = _perfilUsuarioRepository.GetPerfilUsuarioByTipoAsync("Comum");
@@ -28,7 +30,7 @@ namespace UniHealth.Application.Applications
             await _usuarioRepository.AddUsuarioAsync(usuario);
         }
 
-        public bool CPFExists(string cpf)
+        public bool CPFExiste(string cpf)
         {
             var usuario = _usuarioRepository.GetUsuarioByCPF(cpf);
 
@@ -38,22 +40,23 @@ namespace UniHealth.Application.Applications
             return false;
         }
 
-        public bool LoginUser(string cpf, string passowrd)
+        public bool LogarUsuario(string cpf, string passowrd)
         {
+            if (!ValidacaoUtils.CPFValido(cpf))
+                throw new CPFInvalidoException();
+
             var usuario = _usuarioRepository.GetUsuarioByCPF(cpf);
 
             if (usuario == null)
-                return false;
+                throw new UsuarioNaoCadastradoException(cpf);
 
-            if (usuario.Senha == passowrd)
-            {
-                return true;
-            }
+            if (usuario.Senha != passowrd)
+                throw new SenhaInvalidaException(cpf);
 
-            return false;
+            return true;
         }
 
-        public void UpdatePassword(string cpf, string newPassword)
+        public void AlterarSenhaUsuario(string cpf, string newPassword)
         {
             var usuario = _usuarioRepository.GetUsuarioByCPF(cpf);
 

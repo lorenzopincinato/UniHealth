@@ -74,18 +74,18 @@
     <Compile Include="AlteraSenha.xaml.cs">
       <DependentUpon>AlteraSenha.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CadastroUsuario.xaml.cs">
-      <DependentUpon>CadastroUsuario.xaml</DependentUpon>
+    <Compile Include="Cadastro.xaml.cs">
+      <DependentUpon>Cadastro.xaml</DependentUpon>
     </Compile>
     <Page Include="AlteraSenha.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="CadastroUsuario.xaml">
+    <Page Include="Cadastro.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Login.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -93,8 +93,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

@@ -129,7 +129,7 @@ namespace UniHealth
                     return false;
                 }
 
-                if (!_usuarioApplication.LoginUser(_cpf, senhaAtual))
+                if (!_usuarioApplication.LogarUsuario(_cpf, senhaAtual))
                 {
                     lblMensagem.Content = "A senha atual está inválida!";
                     return false;
@@ -171,7 +171,7 @@ namespace UniHealth
                 return false;
             }
 
-            _usuarioApplication.UpdatePassword(_cpf, senhaNova);
+            _usuarioApplication.AlterarSenhaUsuario(_cpf, senhaNova);
             return true;
         }
         

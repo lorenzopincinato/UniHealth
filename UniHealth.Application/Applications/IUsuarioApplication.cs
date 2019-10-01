@@ -4,9 +4,9 @@ namespace UniHealth.Application.Applications
 {
     public interface IUsuarioApplication
     {
-        bool CPFExists(string cpf);
-        Task CreateUsuario(string cpf, string rg, string nome, string senha);
-        bool LoginUser(string cpf, string password);
-        void UpdatePassword(string cpf, string newPassword);
+        bool CPFExiste(string cpf);
+        Task CadastrarUsuario(string cpf, string rg, string nome, string senha);
+        bool LogarUsuario(string cpf, string password);
+        void AlterarSenhaUsuario(string cpf, string newPassword);
     }
 }

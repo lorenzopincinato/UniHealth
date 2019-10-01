@@ -54,6 +54,9 @@
     <Compile Include="Applications\IUsuarioApplication.cs" />
     <Compile Include="Applications\UsuarioApplication.cs" />
     <Compile Include="DbUniHealthContext.cs" />
+    <Compile Include="Exceptions\CPFInvalidoException.cs" />
+    <Compile Include="Exceptions\RGInvalidoException.cs" />
+    <Compile Include="Exceptions\UsuarioNaoCadastradoException.cs" />
     <Compile Include="Migrations\201909242312576_Initial.cs" />
     <Compile Include="Migrations\201909242312576_Initial.designer.cs">
       <DependentUpon>201909242312576_Initial.cs</DependentUpon>
@@ -82,8 +85,9 @@
     <Compile Include="Repositories\PerfilUsuarioRepository.cs" />
     <Compile Include="Repositories\StatusUsuarioRepository.cs" />
     <Compile Include="Repositories\UsuarioRepository.cs" />
-    <Compile Include="Utils\ValidaCPF.cs" />
     <Compile Include="Utils\ValidaSenha.cs" />
+    <Compile Include="Exceptions\SenhaInvalidaException.cs" />
+    <Compile Include="Utils\ValidacaoUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
