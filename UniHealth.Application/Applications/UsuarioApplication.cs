@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using UniHealth.Application.Exceptions;
 using UniHealth.Application.Models;
@@ -13,6 +15,8 @@ namespace UniHealth.Application.Applications
         private readonly IStatusUsuarioRepository _statusUsuarioRepository;
         private readonly IPerfilUsuarioRepository _perfilUsuarioRepository;
 
+        private readonly ValidaSenha _validaSenha = new ValidaSenha();
+
         public UsuarioApplication(IUsuarioRepository usuarioRepository, IStatusUsuarioRepository statusUsuarioRepository, IPerfilUsuarioRepository perfilUsuarioRepository)
         {
             _usuarioRepository = usuarioRepository;
@@ -20,14 +24,33 @@ namespace UniHealth.Application.Applications
             _perfilUsuarioRepository = perfilUsuarioRepository;
         }
 
-        public async Task CadastrarUsuario(string cpf, string rg, string nome, string senha)
+        public void CadastrarUsuario(string cpf, string rg, string nome, string senha, string confirmacaoSenha)
         {
+            try { _validaSenha.ValidarRestricaoSenha(ModoVerificacaoSenha.Adicionando, senha, confirmacaoSenha); }
+            catch (Exception ex) { throw new SenhaInvalidaException(ex.Message); }
+
+            if (!ValidacaoUtils.CPFValido(cpf))
+                throw new CPFInvalidoException();
+
+            if (!ValidacaoUtils.RGValido(rg))
+                throw new RGInvalidoException();
+
+            if (_usuarioRepository.GetUsuarioByCPF(cpf) != null)
+                throw new CPFInvalidoException("O CPF já está cadastrado!");
+
+            if (_usuarioRepository.GetUsuarioByRG(rg) != null)
+                throw new RGInvalidoException("O RG já está cadastrado!");
+
             var statusUsuario = _statusUsuarioRepository.GetStatusUsuarioByEstadoAsync("Normal");
             var perfilUsuario = _perfilUsuarioRepository.GetPerfilUsuarioByTipoAsync("Comum");
 
-            var usuario = new Usuario(cpf, rg, nome, senha, DateTime.Now, statusUsuario, perfilUsuario);
+            // AQUI
+            var senhaCriptografadaParcial = CriptografiaUtils.CriptografiaEmCifra(senha);
+            var senhaCriptografadaFinal = CriptografiaUtils.CriptografaEmCodigo(senhaCriptografadaParcial);
 
-            await _usuarioRepository.AddUsuarioAsync(usuario);
+            var usuario = new Usuario(cpf, rg, nome, senhaCriptografadaFinal, DateTime.Now, statusUsuario, perfilUsuario);
+
+            _usuarioRepository.AddUsuario(usuario);
         }
 
         public bool CPFExiste(string cpf)
@@ -50,7 +73,16 @@ namespace UniHealth.Application.Applications
             if (usuario == null)
                 throw new UsuarioNaoCadastradoException(cpf);
 
-            if (usuario.Senha != passowrd)
+            if (usuario.StatusUsuario.Estado == "Excluido")
+                throw new UsuarioImpossibilitadoException("Esse usuário foi exclúido!");
+
+            if (usuario.StatusUsuario.Estado == "Bloqueado")
+                throw new UsuarioImpossibilitadoException("Esse usuário está bloqueado!");
+
+            var senhaDecriptadaParcial = CriptografiaUtils.DecriptografiaEmCodigo(usuario.Senha);
+            var senhaDecriptadaFinal = CriptografiaUtils.DecriptografiaEmCifra(senhaDecriptadaParcial);
+
+            if (senhaDecriptadaFinal != passowrd.ToUpper())
                 throw new SenhaInvalidaException(cpf);
 
             return true;
@@ -60,7 +92,43 @@ namespace UniHealth.Application.Applications
         {
             var usuario = _usuarioRepository.GetUsuarioByCPF(cpf);
 
-            usuario.Senha = newPassword;
+            var senhaCriptografadaParcial = CriptografiaUtils.CriptografiaEmCifra(newPassword);
+            var senhaCriptografadaFinal = CriptografiaUtils.CriptografaEmCodigo(senhaCriptografadaParcial);
+
+            usuario.Senha = senhaCriptografadaFinal;
+
+            _usuarioRepository.UpdateUsuario(usuario);
+        }
+
+        public List<string> GetCPFs()
+        {
+            return _usuarioRepository.GetAll().Select(x => x.CPF).ToList();
+        }
+
+        public Usuario GetUsuario(string cpf)
+        {
+            return _usuarioRepository.GetUsuarioByCPF(cpf);
+        }
+
+        public List<string> GetEstados()
+        {
+            return _statusUsuarioRepository.GetAll().Select(x => x.Estado).ToList();
+        }
+
+        public List<string> GetPerfis()
+        {
+            return _perfilUsuarioRepository.GetAll().Select(x => x.Tipo).ToList();
+        }
+
+        public void AlterarUsuario(string cpf, string estado, string perfil)
+        {
+            var usuario = _usuarioRepository.GetUsuarioByCPF(cpf);
+
+            var novoEstado = _statusUsuarioRepository.GetStatusUsuarioByEstadoAsync(estado);
+            var novoPerfil = _perfilUsuarioRepository.GetPerfilUsuarioByTipoAsync(perfil);
+
+            usuario.StatusUsuario = novoEstado;
+            usuario.PerfilUsuario = novoPerfil;
 
             _usuarioRepository.UpdateUsuario(usuario);
         }

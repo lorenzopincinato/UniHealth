@@ -5,24 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UniHealth"
         mc:Ignorable="d"
-        Title="UniHealth - Alterar Senha" Height="474" Width="800">
+        Title="UniHealth - Alterar Senha" Height="342" Width="372.5">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="43*"/>
             <ColumnDefinition Width="353*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="lblUnihealth" Content="UniHealth" Margin="227,42,0,0" VerticalAlignment="Top" FontSize="36" HorizontalAlignment="Left" Height="58" Width="168" Grid.Column="1"/>
-        <Label x:Name="lblAlterarSenha" Content="Alterar Senha" HorizontalAlignment="Left" Margin="227,105,0,0" VerticalAlignment="Top" FontSize="24" Height="42" Width="155" Grid.Column="1"/>
-        <Label x:Name="lblSenhaAtual" Content="Senha atual:" HorizontalAlignment="Left" Margin="140,181,0,0" VerticalAlignment="Top" Height="26" Width="79" Grid.Column="1"/>
-        <Label x:Name="lblSenhaNova" Content="Senha nova:" HorizontalAlignment="Left" Margin="140,242,0,0" VerticalAlignment="Top" Height="26" Width="79" Grid.Column="1"/>
-        <Button x:Name="btnAlterarSenha" Content="Alterar Senha" HorizontalAlignment="Left" Margin="279,385,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.547,2.6" Grid.Column="1" Click="BtnAlterarSenha_Click" Panel.ZIndex="3"/>
-        <PasswordBox x:Name="txtSenhaNova" Margin="279,242,227,0" VerticalAlignment="Top" Height="24" Grid.Column="1" Panel.ZIndex="1" PasswordChanged="TxtSenhaNova_PasswordChanged"/>
-        <Label x:Name="lblConfSenhaNova" Content="Confirmar senha nova:" HorizontalAlignment="Left" Margin="140,297,0,0" VerticalAlignment="Top" Height="33" Width="133" Grid.Column="1"/>
-        <PasswordBox x:Name="txtConfSenhaNova" Margin="278,297,227,0" VerticalAlignment="Top" Height="24" Grid.Column="1" Panel.ZIndex="2" PasswordChanged="TxtConfSenhaNova_PasswordChanged"/>
-        <Label x:Name="lblMensagem" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="113,335,0,0" VerticalAlignment="Top" RenderTransformOrigin="-10,0.385" Width="387"/>
-        <PasswordBox x:Name="txtSenhaAtual" Margin="279,181,227,0" VerticalAlignment="Top" Height="24" Grid.Column="1" Panel.ZIndex="1"/>
-        <Label x:Name="lblForcaSenhaNova" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="504,240,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblForcaConfSenhaNova" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="504,295,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.7,1.654"/>
+        <Label x:Name="lblUnihealth" Content="UniHealth" Margin="56,14,0,0" VerticalAlignment="Top" FontSize="36" HorizontalAlignment="Left" Height="58" Width="168" Grid.Column="1"/>
+        <Label x:Name="lblAlterarSenha" Content="Alterar Senha" HorizontalAlignment="Left" Margin="63,77,0,0" VerticalAlignment="Top" FontSize="24" Height="42" Width="154" Grid.Column="1"/>
+        <Label x:Name="lblSenhaAtual" Content="Senha atual:" HorizontalAlignment="Left" Margin="13,143,0,0" VerticalAlignment="Top" Height="26" Width="80" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblSenhaNova" Content="Senha nova:" HorizontalAlignment="Left" Margin="13,186,0,0" VerticalAlignment="Top" Height="26" Width="80" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnAlterarSenha" Content="Alterar Senha" HorizontalAlignment="Left" Margin="8,270,0,0" VerticalAlignment="Top" Width="264" RenderTransformOrigin="0.547,2.6" Grid.Column="1" Click="BtnAlterarSenha_Click" Panel.ZIndex="3"/>
+        <PasswordBox x:Name="txtSenhaNova" Margin="107,186,0,0" VerticalAlignment="Top" Height="24" Grid.Column="1" Panel.ZIndex="1" PasswordChanged="TxtSenhaNova_PasswordChanged" HorizontalAlignment="Left" Width="200"/>
+        <Label x:Name="lblConfSenhaNova" Content="Confirmar senha nova:" HorizontalAlignment="Left" Margin="13,227,0,0" VerticalAlignment="Top" Height="34" Width="134" Grid.ColumnSpan="2"/>
+        <PasswordBox x:Name="txtConfSenhaNova" Margin="107,227,0,0" VerticalAlignment="Top" Height="24" Grid.Column="1" Panel.ZIndex="2" PasswordChanged="TxtConfSenhaNova_PasswordChanged" HorizontalAlignment="Left" Width="202"/>
+        <PasswordBox x:Name="txtSenhaAtual" Margin="107,145,0,0" VerticalAlignment="Top" Height="24" Grid.Column="1" Panel.ZIndex="1" HorizontalAlignment="Left" Width="200"/>
+        <Label x:Name="lblForcaSenhaNova" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="312,225,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblForcaConfSenhaNova" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="309,184,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.7,1.654"/>
+        <Label Content="Label" Grid.Column="1" HorizontalAlignment="Left" Margin="133,145,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

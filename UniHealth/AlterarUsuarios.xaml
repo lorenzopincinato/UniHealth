@@ -1,0 +1,26 @@
+﻿<Window x:Class="UniHealth.AlterarUsuarios"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UniHealth"
+        mc:Ignorable="d"
+        Title="AlterarUsuarios" Height="405.333" Width="338.158">
+    <Grid>
+        <Label x:Name="lblUnihealth" Content="UniHealth" Margin="76,17,0,0" VerticalAlignment="Top" FontSize="36" HorizontalAlignment="Left" Height="58" Width="168"/>
+        <Label x:Name="lblAlterarUsuarios" Content="Alterar Usuários" HorizontalAlignment="Left" Margin="61,80,0,0" VerticalAlignment="Top" FontSize="24" Height="42" Width="183"/>
+        <Label x:Name="lblCPF" Content="CPF do Usuário:" HorizontalAlignment="Left" Margin="25,142,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cmbCPFs" HorizontalAlignment="Left" Margin="124,146,0,0" VerticalAlignment="Top" Width="180" SelectionChanged="CmbCPFs_SelectionChanged" DropDownClosed="CmbCPFs_DropDownClosed"/>
+        <Label x:Name="lblNome" Content="Nome:" HorizontalAlignment="Left" Margin="25,189,0,0" VerticalAlignment="Top" Height="26" Width="45"/>
+        <Label x:Name="lblCPF_Copy" Content="CPF:" HorizontalAlignment="Left" Margin="25,220,0,0" VerticalAlignment="Top" Height="26" Width="33"/>
+        <Label x:Name="lblRG" Content="RG:" HorizontalAlignment="Left" Margin="25,249,0,0" VerticalAlignment="Top" Height="26" Width="28"/>
+        <Label x:Name="lblPerfil" Content="Perfil:" HorizontalAlignment="Left" Margin="25,277,0,0" VerticalAlignment="Top" Height="26" Width="39"/>
+        <TextBox x:Name="txtNome" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="76,189,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="228"/>
+        <TextBox x:Name="txtCPF" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="76,221,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="228" />
+        <TextBox x:Name="txtRG" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="76,249,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="228"/>
+        <ComboBox x:Name="cmbPerfil" HorizontalAlignment="Left" Margin="76,277,0,0" VerticalAlignment="Top" Width="228"/>
+        <Label x:Name="lblEstado" Content="Estado:" HorizontalAlignment="Left" Margin="25,308,0,0" VerticalAlignment="Top" Height="26" Width="51"/>
+        <ComboBox x:Name="cmbEstado" HorizontalAlignment="Left" Margin="76,308,0,0" VerticalAlignment="Top" Width="228"/>
+        <Button Content="Salvar" HorizontalAlignment="Left" Margin="25,344,0,0" VerticalAlignment="Top" Width="279" Click="Button_Click"/>
+    </Grid>
+</Window>

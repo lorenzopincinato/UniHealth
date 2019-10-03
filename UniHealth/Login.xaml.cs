@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Input;
 using UniHealth.Application.Applications;
 using UniHealth.Application.Exceptions;
 
@@ -20,8 +21,10 @@ namespace UniHealth
         {
             try
             {
+                Mouse.OverrideCursor = Cursors.Wait;
+
                 if (_usuarioApplication.LogarUsuario(txtUsuario.Text, txtSenha.Password))
-                    new AlteraSenha(_usuarioApplication, txtUsuario.Text).Show();
+                    new Usuario(_usuarioApplication, _usuarioApplication.GetUsuario(txtUsuario.Text)).Show();
             }
             catch (CPFInvalidoException ex)
             {
@@ -49,9 +52,22 @@ namespace UniHealth
 
                 txtUsuario.Focus();
             }
-            catch (Exception)
+            catch (UsuarioImpossibilitadoException ex)
+            {
+                MostrarMensagemAlerta(Title, ex.Message);
+
+                txtUsuario.Clear();
+                txtSenha.Clear();
+
+                txtUsuario.Focus();
+            }
+            catch (Exception ex)
             {
                 MostrarMensagemErro(Title, "Um erro inesperado ocorreu, tente novamente mais tarde!");
+            }
+            finally
+            {
+                Mouse.OverrideCursor = null;
             }
         }
 

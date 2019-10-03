@@ -12,7 +12,7 @@ namespace UniHealth.Application.Utils
         private const int maxNumerosDecrescentesConsecutivosPermitidos = 3;
         private int[] vetPontos = new int[] { -2, -2, -1, -1, -2, -2, -3, -4 };
 
-        private Regex regexSenha = new Regex("^[a-zA-Z0-9]*$");
+        private Regex regexSenha = new Regex("^[a-zA-Z0-9 ]*$");
         private const int maxCaracteresConsecutivosPermitidos = 2;
         private const int minQtdLetras = 3;
         private const int minQtdNumeros = 2;

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using UniHealth.Application.Models;
 
@@ -11,6 +12,11 @@ namespace UniHealth.Application.Repositories
         public StatusUsuarioRepository(DbUniHealthContext dataContext)
         {
             _dbContext = dataContext;
+        }
+
+        public List<StatusUsuario> GetAll()
+        {
+            return _dbContext.StatusUsuarios.ToList();
         }
 
         public StatusUsuario GetStatusUsuarioByEstadoAsync(string estado)

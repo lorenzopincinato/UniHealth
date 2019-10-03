@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using UniHealth.Application.Models;
 
 namespace UniHealth.Application.Repositories
@@ -6,11 +7,9 @@ namespace UniHealth.Application.Repositories
     public interface IUsuarioRepository
     {
         Usuario GetUsuarioByCPF(string cpf);
-
-        Task AddUsuarioAsync(Usuario usuario);
-
+        Usuario GetUsuarioByRG(string rg);
+        void AddUsuario(Usuario usuario);
         void UpdateUsuario(Usuario usuario);
-
-        Task DeleteUsuarioByCPFAsync(string cpf);
+        List<Usuario> GetAll();
     }
 }

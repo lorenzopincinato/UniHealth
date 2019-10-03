@@ -3,7 +3,9 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Media;
 using UniHealth.Application.Applications;
+using UniHealth.Application.Exceptions;
 using UniHealth.Application.Models;
+using UniHealth.Application.Utils;
 
 namespace UniHealth
 {
@@ -31,6 +33,8 @@ namespace UniHealth
         private int qtdNumeros;
         private int forcaSenha;
 
+        private ValidaSenha _validaSenha = new ValidaSenha();
+
         public AlteraSenha(IUsuarioApplication usuarioApplication, string cpf)
         {
             _usuarioApplication = usuarioApplication;
@@ -41,24 +45,33 @@ namespace UniHealth
 
         private void BtnAlterarSenha_Click(object sender, RoutedEventArgs e)
         {
-            // transforma campos em variáveis
             String senhaAtual = txtSenhaAtual.Password.ToString();
             String senhaNova = txtSenhaNova.Password.ToString();
             String confSenhaNova = txtConfSenhaNova.Password.ToString();
 
-            // limpa variáveis para validar
-            lblMensagem.Content = "";
-            lblMensagem.Foreground = Brushes.Red;
 
             CalculaPontuacaoSenha(senhaNova);
-            senhaEhValida = ValidarRestricaoSenha(ModoVerificacaoSenha.Alterando, senhaNova, confSenhaNova, senhaAtual);
 
-            if (senhaEhValida)
-            {                
-                lblMensagem.Foreground = Brushes.Green; 
-                lblMensagem.Content = "Senha alterada com sucesso!";
+            try
+            {
+                if (_validaSenha.ValidarRestricaoSenha(ModoVerificacaoSenha.Alterando, senhaNova, confSenhaNova, senhaAtual))
+                {
+                    _usuarioApplication.AlterarSenhaUsuario(_cpf, senhaNova);
 
-                //alterar senha do usuario no bd
+                    MensagemUtils.MostrarMensagemSucesso(Title, "Senha alterada com sucesso!");
+
+                    Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MensagemUtils.MostrarMensagemAlerta(Title, ex.Message);
+
+                txtSenhaAtual.Clear();
+                txtSenhaNova.Clear();
+                txtConfSenhaNova.Clear();
+
+                txtSenhaNova.Focus();
             }
         }
 
@@ -112,68 +125,6 @@ namespace UniHealth
             */
             return forcaSenha;
         }
-
-        public bool ValidarRestricaoSenha(ModoVerificacaoSenha modoVerificacaoSenha, String senhaNova, String confSenhaNova, String senhaAtual = null)
-        {            
-            if (modoVerificacaoSenha.Equals(ModoVerificacaoSenha.Alterando))
-            {
-                if (String.IsNullOrEmpty(senhaAtual))
-                {
-                    lblMensagem.Content = "A senha atual não pode ser nula!";
-                    return false;
-                }
-                else
-                if (senhaAtual.Equals(senhaNova))
-                {
-                    lblMensagem.Content = "A senha nova não pode ser igual a senha atual!";
-                    return false;
-                }
-
-                if (!_usuarioApplication.LogarUsuario(_cpf, senhaAtual))
-                {
-                    lblMensagem.Content = "A senha atual está inválida!";
-                    return false;
-                }
-            }            
-            if (!senhaNova.Equals(confSenhaNova))
-            {
-                lblMensagem.Content = "A confirmação da senha nova não é igual a senha nova!";
-                return false;
-            }
-            else
-            if (senhaNova.Length < 7 || senhaNova.Length > 11)
-            {
-                lblMensagem.Content = "A senha nova deve conter entre 7 e 11 caracteres!";
-                return false;
-            }
-            else
-            if (!regexSenha.IsMatch(senhaNova))
-            {
-                lblMensagem.Content = "A senha nova não deve conter caracteres especiais nem caracteres matemáticos!";
-                return false;
-            }
-            else
-            if (getQtdDeLetras(senhaNova) < minQtdLetras)
-            {
-                lblMensagem.Content = $"A senha nova deve conter pelo menos {minQtdLetras} letras!";
-                return false;
-            }
-            else
-            if (getQtdDeNumeros(senhaNova) < minQtdNumeros)
-            {
-                lblMensagem.Content = $"A senha nova deve conter pelo menos {minQtdNumeros} números!";
-                return false;
-            }
-            else
-            if (temCaracteresRepetidos(senhaNova))
-            {
-                lblMensagem.Content = $"A senha nova não pode conter {maxCaracteresConsecutivosPermitidos+1} caracteres repetidos em sequência!";
-                return false;
-            }
-
-            _usuarioApplication.AlterarSenhaUsuario(_cpf, senhaNova);
-            return true;
-        }
         
         private bool temNumerosSequenciaisCrescentes()
         {
@@ -210,28 +161,6 @@ namespace UniHealth
 
             return qtdNumeros;
         }
-
-        private bool temCaracteresRepetidos(String texto)
-        {
-            char charAtual, charAnterior;
-            int qtdCharsRepetidos = 1;      // inicializa com 1 para contar o char atual
-
-            for (int i = 1; i < texto.Length; i++)
-            {                                                                           
-                charAnterior = texto[i-1];
-                charAtual = texto[i]; 
-                    
-                if (charAtual == charAnterior)
-                    qtdCharsRepetidos++;                    
-                else
-                    qtdCharsRepetidos = 1;
-
-                if (qtdCharsRepetidos > maxCaracteresConsecutivosPermitidos)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }        
+      
     }
 }

@@ -40,6 +40,7 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -56,6 +57,7 @@
     <Compile Include="DbUniHealthContext.cs" />
     <Compile Include="Exceptions\CPFInvalidoException.cs" />
     <Compile Include="Exceptions\RGInvalidoException.cs" />
+    <Compile Include="Exceptions\UsuarioImpossibilitadoException.cs" />
     <Compile Include="Exceptions\UsuarioNaoCadastradoException.cs" />
     <Compile Include="Migrations\201909242312576_Initial.cs" />
     <Compile Include="Migrations\201909242312576_Initial.designer.cs">
@@ -85,6 +87,8 @@
     <Compile Include="Repositories\PerfilUsuarioRepository.cs" />
     <Compile Include="Repositories\StatusUsuarioRepository.cs" />
     <Compile Include="Repositories\UsuarioRepository.cs" />
+    <Compile Include="Utils\CriptografiaUtils.cs" />
+    <Compile Include="Utils\MensagemUtils.cs" />
     <Compile Include="Utils\ValidaSenha.cs" />
     <Compile Include="Exceptions\SenhaInvalidaException.cs" />
     <Compile Include="Utils\ValidacaoUtils.cs" />

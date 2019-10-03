@@ -1,5 +1,5 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Linq;
 using UniHealth.Application.Models;
 
 namespace UniHealth.Application.Repositories
@@ -15,13 +15,18 @@ namespace UniHealth.Application.Repositories
 
         public Usuario GetUsuarioByCPF(string cpf)
         {
-            return _dbContext.Usuarios.FirstOrDefault(x => x.CPF == cpf);
+            return _dbContext.Usuarios.Include("StatusUsuario").Include("PerfilUsuario").FirstOrDefault(x => x.CPF == cpf);
         }
 
-        public async Task AddUsuarioAsync(Usuario usuario)
+        public Usuario GetUsuarioByRG(string rg)
+        {
+            return _dbContext.Usuarios.FirstOrDefault(x => x.RG == rg);
+        }
+
+        public void AddUsuario(Usuario usuario)
         {
             _dbContext.Usuarios.Add(usuario);
-            await _dbContext.SaveChangesAsync();
+            _dbContext.SaveChanges();
         }
 
         public void UpdateUsuario(Usuario usuario)
@@ -32,10 +37,9 @@ namespace UniHealth.Application.Repositories
             _dbContext.SaveChanges();
         }
 
-        public async Task DeleteUsuarioByCPFAsync(string cpf)
+        public List<Usuario> GetAll()
         {
-            _dbContext.Usuarios.Where(x => x.CPF == cpf).FirstOrDefault();
-            await _dbContext.SaveChangesAsync();
+            return _dbContext.Usuarios.ToList();
         }
     }
 }

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="UniHealth - Login" Height="310" Width="300">
     <Grid x:Name="frmUnihealth" Margin="0,0,2,-2">
-        <Label x:Name="lblUnihealth" Content="UniHealth" Margin="60,28,61,0" VerticalAlignment="Top" FontSize="36" Height="58"/>
+        <Label x:Name="lblUnihealth" Content="UniHealth" Margin="60,28,46,0" VerticalAlignment="Top" FontSize="36" Height="58"/>
         <Label x:Name="lblUsuario" Content="CPF:" HorizontalAlignment="Left" Margin="15,114,0,0" VerticalAlignment="Top" Height="26" Width="41"/>
         <Label x:Name="lblSenha" Content="Senha:" HorizontalAlignment="Left" Margin="15,158,0,0" VerticalAlignment="Top" Height="26" Width="45"/>
         <Label x:Name="lblCriarConta" Content="Não possui conta. Clique aqui." Margin="59,240,58,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.514,1.846" PreviewMouseDown="LblCriarConta_PreviewMouseDown"/>

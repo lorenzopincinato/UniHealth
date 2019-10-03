@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Input;
 using UniHealth.Application.Applications;
+using UniHealth.Application.Exceptions;
 using UniHealth.Application.Models;
 using UniHealth.Application.Utils;
 
@@ -24,52 +26,46 @@ namespace UniHealth
 
         private void BtnCadastrar_Click_1(object sender, RoutedEventArgs e)
         {
-            if (ValidacaoUtils.CPFValido(txtCPF.Text))
+            try
             {
-                if (txtRG.Text != "")
-                {
-                    if (txtUsuario.Text != "")
-                    {
-                        try
-                        {
-                            if (_validaSenha.ValidarRestricaoSenha(ModoVerificacaoSenha.Adicionando, txtSenha.Password, txtConfSenha.Password))
-                            {
-                                if (!_usuarioApplication.CPFExiste(txtCPF.Text))
-                                {
-                                    _usuarioApplication.CadastrarUsuario(txtCPF.Text, txtRG.Text, txtUsuario.Text, txtSenha.Password);
+                Mouse.OverrideCursor = Cursors.Wait;
 
-                                    lblErro.Content = "Usuário cadastrado com sucesso!";
+                _usuarioApplication.CadastrarUsuario(txtCPF.Text, txtRG.Text, txtUsuario.Text, txtSenha.Password, txtConfSenha.Password);
 
-                                    txtCPF.Clear();
-                                    txtRG.Clear();
-                                    txtUsuario.Clear();
-                                    txtSenha.Clear();
-                                    txtConfSenha.Clear();
-                                }
-                                else
-                                {
-                                    lblErro.Content = "CPF inválido, já existe um usuário cadastrado com esse CPF!";
-                                }
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            lblErro.Content = ex.Message;
-                        }
-                    }
-                    else
-                    {
-                        lblErro.Content = "Nome do usuário não pode estar vazio!";
-                    }
-                }
-                else
-                {
-                    lblErro.Content = "RG não pode estar vazio!";
-                }
+                MensagemUtils.MostrarMensagemSucesso(Title, "Usuário cadastrado com sucesso!");
+
+                Close();
             }
-            else
+            catch (CPFInvalidoException ex)
             {
-                lblErro.Content = "CPF não é válido!";
+                MensagemUtils.MostrarMensagemAlerta(Title, ex.Message);
+
+                txtCPF.Clear();
+                txtCPF.Focus();
+            }
+            catch (RGInvalidoException ex)
+            {
+                MensagemUtils.MostrarMensagemAlerta(Title, ex.Message);
+
+                txtRG.Clear();
+                txtRG.Focus();
+            }
+            catch (SenhaInvalidaException ex)
+            {
+                MensagemUtils.MostrarMensagemAlerta(Title, ex.Message);
+
+                txtSenha.Clear();
+                txtConfSenha.Clear();
+
+                txtSenha.Focus();
+            }
+            catch (Exception)
+            {
+                MensagemUtils.MostrarMensagemErro(Title, "Um erro inesperado ocorreu, tente novamente mais tarde!");
+            }
+            finally
+            {
+                Mouse.OverrideCursor = null;
             }
         }
     }
