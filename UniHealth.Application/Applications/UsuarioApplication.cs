@@ -15,8 +15,6 @@ namespace UniHealth.Application.Applications
         private readonly IStatusUsuarioRepository _statusUsuarioRepository;
         private readonly IPerfilUsuarioRepository _perfilUsuarioRepository;
 
-        private readonly ValidaSenha _validaSenha = new ValidaSenha();
-
         public UsuarioApplication(IUsuarioRepository usuarioRepository, IStatusUsuarioRepository statusUsuarioRepository, IPerfilUsuarioRepository perfilUsuarioRepository)
         {
             _usuarioRepository = usuarioRepository;
@@ -26,7 +24,7 @@ namespace UniHealth.Application.Applications
 
         public void CadastrarUsuario(string cpf, string rg, string nome, string senha, string confirmacaoSenha)
         {
-            try { _validaSenha.ValidarRestricaoSenha(ModoVerificacaoSenha.Adicionando, senha, confirmacaoSenha); }
+            try { ValidacaoUtils.SenhaValida(ModoVerificacaoSenha.Adicionando, senha, confirmacaoSenha); }
             catch (Exception ex) { throw new SenhaInvalidaException(ex.Message); }
 
             if (!ValidacaoUtils.CPFValido(cpf))

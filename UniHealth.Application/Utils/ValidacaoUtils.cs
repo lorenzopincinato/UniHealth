@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using UniHealth.Application.Exceptions;
+using UniHealth.Application.Models;
 
 namespace UniHealth.Application.Utils
 {
@@ -93,6 +95,105 @@ namespace UniHealth.Application.Utils
             {
                 return false;
             }
+        }
+
+        public static bool SenhaValida(ModoVerificacaoSenha modoVerificacaoSenha, string senhaNova, string confSenhaNova, string senhaAtual = null)
+        {
+            int minLetras = 3;
+            int minNumeros = 2;
+            int maxCharsConsecutivos = 2;
+
+            var regexSenha = new Regex("^[a-zA-Z0-9 ]*$");
+
+            if (modoVerificacaoSenha.Equals(ModoVerificacaoSenha.Alterando))
+            {
+                if (string.IsNullOrEmpty(senhaAtual))
+                    throw new Exception("A senha atual não pode ser nula!");
+
+                else
+                if (senhaAtual.Equals(senhaNova))
+                    throw new Exception("A nova senha não pode ser igual a senha atual!");
+            }
+
+            if (!senhaNova.Equals(confSenhaNova))
+                throw new Exception("A confirmação da senha nova não é igual a senha nova!");
+
+            else
+            if (senhaNova.Length < 7 || senhaNova.Length > 11)
+                throw new Exception("A senha nova deve conter entre 7 e 11 caracteres!");
+
+            else
+            if (!regexSenha.IsMatch(senhaNova))
+                throw new Exception("A senha não deve conter caracteres especiais nem caracteres matemáticos!");
+
+            else
+            if (!TemMinLetras(senhaNova, minLetras))
+                throw new Exception($"A senha deve conter pelo menos {minLetras} letras!");
+
+            else
+            if (!TemMinNumeros(senhaNova, minNumeros))
+                throw new Exception($"A senha deve conter pelo menos {minNumeros} números!");
+
+            else
+            if (TemMaxCharsRepetidos(senhaNova, maxCharsConsecutivos))
+                throw new Exception($"A senha não pode conter {maxCharsConsecutivos + 1} caracteres repetidos em sequência!");
+
+            return true;
+        }
+
+        private static bool TemMinLetras(string texto, int minLetras = 0)
+        {
+            int quantasLetras = 0;
+
+            for (int i = 0; i < texto.Length; i++)
+            {
+                if (char.IsLetter(texto, i))
+                    quantasLetras++;
+            }
+
+            if (quantasLetras < minLetras)
+                return false;
+
+            return true;
+        }
+
+        private static bool TemMinNumeros(string texto, int minNumeros = 0)
+        {
+            var quantosNumeros = 0;
+
+            for (int i = 0; i < texto.Length; i++)
+            {
+                if (char.IsNumber(texto, i))
+                    quantosNumeros++;
+            }
+
+            if (quantosNumeros < minNumeros)
+                return false;
+
+            return true;
+        }
+
+        private static bool TemMaxCharsRepetidos(string texto, int maxCharsConsecutivos = 0)
+        {
+            char charAtual, charAnterior;
+            int quantosCharsRepetidos = 1;
+
+            for (int i = 1; i < texto.Length; i++)
+            {
+                charAnterior = texto[i - 1];
+                charAtual = texto[i];
+
+                if (charAtual == charAnterior)
+                    quantosCharsRepetidos++;
+                else
+                    quantosCharsRepetidos = 1;
+
+                if (quantosCharsRepetidos > maxCharsConsecutivos)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

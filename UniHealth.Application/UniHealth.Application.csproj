@@ -89,7 +89,6 @@
     <Compile Include="Repositories\UsuarioRepository.cs" />
     <Compile Include="Utils\CriptografiaUtils.cs" />
     <Compile Include="Utils\MensagemUtils.cs" />
-    <Compile Include="Utils\ValidaSenha.cs" />
     <Compile Include="Exceptions\SenhaInvalidaException.cs" />
     <Compile Include="Utils\ValidacaoUtils.cs" />
   </ItemGroup>
