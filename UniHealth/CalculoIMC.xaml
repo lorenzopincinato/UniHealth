@@ -1,0 +1,18 @@
+﻿<Window x:Class="UniHealth.CalculoIMC"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UniHealth"
+        mc:Ignorable="d"
+        Title="CalculoIMC" Height="283.504" Width="317.549">
+    <Grid>
+        <Label x:Name="lblUnihealth" Content="UniHealth" Margin="67,5,0,0" VerticalAlignment="Top" FontSize="36" HorizontalAlignment="Left" Height="58" Width="168"/>
+        <Label x:Name="lblCadastro" Content="Cálculo IMC" HorizontalAlignment="Left" Margin="83,78,0,0" VerticalAlignment="Top" FontSize="24" Height="42" Width="140"/>
+        <Label x:Name="lblPeso" Content="Peso:" Margin="48,141,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="42"/>
+        <TextBox x:Name="txtPeso" HorizontalAlignment="Left" Height="23" Margin="95,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
+        <Label x:Name="lblAltura" Content="Altura:" Margin="41,180,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="49"/>
+        <TextBox x:Name="txtAltura" Height="23" Margin="95,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" HorizontalAlignment="Left"/>
+        <Button x:Name="btnCalcularIMC" Content="Calcular IMC" HorizontalAlignment="Left" Margin="10,222,0,0" Width="292" RenderTransformOrigin="0.547,2.6" Click="BtnCalcularIMC_Click" Height="20" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

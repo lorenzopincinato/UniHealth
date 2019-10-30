@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UniHealth"
         mc:Ignorable="d"
-        Title="Usuario" Height="304.512" Width="273.872">
+        Title="Usuario" Height="376.512" Width="273.872" Activated="Window_Activated">
     <Grid>
         <Label x:Name="lblNome" Content="Nome:" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" Height="26" Width="246"/>
         <Label x:Name="lblCPF" Content="CPF:" HorizontalAlignment="Left" Margin="10,146,0,0" VerticalAlignment="Top" Height="26" Width="246"/>
@@ -13,8 +13,10 @@
         <Label x:Name="lblPerfil" Content="Perfil:" HorizontalAlignment="Left" Margin="10,208,0,0" VerticalAlignment="Top" Height="26" Width="246"/>
         <Label x:Name="lblUnihealth" Content="UniHealth" Margin="49,5,0,0" VerticalAlignment="Top" FontSize="36" HorizontalAlignment="Left" Height="58" Width="168"/>
         <Label x:Name="lblBemVindo" Content="Bem Vindo!" HorizontalAlignment="Left" Margin="63,68,0,0" VerticalAlignment="Top" FontSize="24" Height="42" Width="140"/>
-        <Button x:Name="btnAlterarSenha" Content="Alterar Senha" HorizontalAlignment="Left" Margin="10,244,0,0" VerticalAlignment="Top" Width="104" Click="BtnAlterarSenha_Click"/>
-        <Button x:Name="btnAlterarUsuarios" Content="Alterar Usuários" HorizontalAlignment="Left" Margin="138,244,0,0" VerticalAlignment="Top" Width="118" Click="BtnAlterarUsuarios_Click"/>
+        <Button x:Name="btnAlterarSenha" Content="Alterar Senha" HorizontalAlignment="Left" Margin="10,287,0,0" VerticalAlignment="Top" Width="104" Click="BtnAlterarSenha_Click"/>
+        <Button x:Name="btnAlterarUsuarios" Content="Alterar Usuários" HorizontalAlignment="Left" Margin="138,287,0,0" VerticalAlignment="Top" Width="118" Click="BtnAlterarUsuarios_Click"/>
+        <Label x:Name="lblIMC" Content="IMC: " HorizontalAlignment="Left" Margin="10,239,0,0" VerticalAlignment="Top" Height="26" Width="246"/>
+        <Button x:Name="btnCalcularIMC" Content="Calcular IMC" HorizontalAlignment="Left" Margin="10,316,0,0" VerticalAlignment="Top" Width="104" Click="BtnCalcularIMC_Click"/>
 
     </Grid>
 </Window>

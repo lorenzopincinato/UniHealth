@@ -15,5 +15,7 @@ namespace UniHealth.Application.Applications
         List<string> GetEstados();
         List<string> GetPerfis();
         Usuario GetUsuario(string cpf);
+        IMC CalcIMC(double peso, double altura, string cpf);
+        IMC GetIMC(string cpf);
     }
 }

@@ -32,6 +32,7 @@ namespace UniHealth
             services.AddSingleton<IUsuarioRepository, UsuarioRepository>();
             services.AddSingleton<IStatusUsuarioRepository, StatusUsuarioRepository>();
             services.AddSingleton<IPerfilUsuarioRepository, PerfilUsuarioRepository>();
+            services.AddSingleton<IIMCRepository, IMCRepository>();
 
             services.AddSingleton<IUsuarioApplication, UsuarioApplication>();
         }

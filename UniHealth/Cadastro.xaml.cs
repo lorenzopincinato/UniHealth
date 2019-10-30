@@ -14,14 +14,12 @@ namespace UniHealth
     public partial class CadastroUsuario : Window
     {
         private readonly IUsuarioApplication _usuarioApplication;
-        private readonly ValidaSenha _validaSenha;
 
         public CadastroUsuario(IUsuarioApplication usuarioApplication)
         {
             InitializeComponent();
 
             _usuarioApplication = usuarioApplication;
-            _validaSenha = new ValidaSenha();
         }
 
         private void BtnCadastrar_Click_1(object sender, RoutedEventArgs e)

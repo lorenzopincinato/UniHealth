@@ -24,7 +24,16 @@ namespace UniHealth
                 Mouse.OverrideCursor = Cursors.Wait;
 
                 if (_usuarioApplication.LogarUsuario(txtUsuario.Text, txtSenha.Password))
-                    new Usuario(_usuarioApplication, _usuarioApplication.GetUsuario(txtUsuario.Text)).Show();
+                {
+                    var imc = new Application.Models.IMC();
+                    imc = _usuarioApplication.GetIMC(txtUsuario.Text);
+
+                    new Usuario(
+                        _usuarioApplication,
+                        _usuarioApplication.GetUsuario(txtUsuario.Text),
+                        imc
+                    ).Show();
+                }
             }
             catch (CPFInvalidoException ex)
             {

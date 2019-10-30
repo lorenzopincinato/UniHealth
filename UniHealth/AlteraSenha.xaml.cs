@@ -33,8 +33,6 @@ namespace UniHealth
         private int qtdNumeros;
         private int forcaSenha;
 
-        private ValidaSenha _validaSenha = new ValidaSenha();
-
         public AlteraSenha(IUsuarioApplication usuarioApplication, string cpf)
         {
             _usuarioApplication = usuarioApplication;
@@ -54,7 +52,7 @@ namespace UniHealth
 
             try
             {
-                if (_validaSenha.ValidarRestricaoSenha(ModoVerificacaoSenha.Alterando, senhaNova, confSenhaNova, senhaAtual))
+                if (ValidacaoUtils.SenhaValida(ModoVerificacaoSenha.Alterando, senhaNova, confSenhaNova, senhaAtual))
                 {
                     _usuarioApplication.AlterarSenhaUsuario(_cpf, senhaNova);
 

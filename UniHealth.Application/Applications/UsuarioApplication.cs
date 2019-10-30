@@ -14,12 +14,14 @@ namespace UniHealth.Application.Applications
         private readonly IUsuarioRepository _usuarioRepository;
         private readonly IStatusUsuarioRepository _statusUsuarioRepository;
         private readonly IPerfilUsuarioRepository _perfilUsuarioRepository;
+        private readonly IIMCRepository _imcRepository;
 
-        public UsuarioApplication(IUsuarioRepository usuarioRepository, IStatusUsuarioRepository statusUsuarioRepository, IPerfilUsuarioRepository perfilUsuarioRepository)
+        public UsuarioApplication(IUsuarioRepository usuarioRepository, IStatusUsuarioRepository statusUsuarioRepository, IPerfilUsuarioRepository perfilUsuarioRepository, IIMCRepository imcRepository)
         {
             _usuarioRepository = usuarioRepository;
             _statusUsuarioRepository = statusUsuarioRepository;
             _perfilUsuarioRepository = perfilUsuarioRepository;
+            _imcRepository = imcRepository;
         }
 
         public void CadastrarUsuario(string cpf, string rg, string nome, string senha, string confirmacaoSenha)
@@ -116,6 +118,22 @@ namespace UniHealth.Application.Applications
         public List<string> GetPerfis()
         {
             return _perfilUsuarioRepository.GetAll().Select(x => x.Tipo).ToList();
+        }
+
+        public IMC CalcIMC(double peso, double altura, string cpf)
+        {
+            var usuario = _usuarioRepository.GetUsuarioByCPF(cpf);
+
+            var imc = new IMC(peso, altura, usuario.Id);
+
+            _imcRepository.AddIMC(imc);
+
+            return imc;
+        }
+
+        public IMC GetIMC(string cpf)
+        {
+            return _imcRepository.GetLastIMC(cpf);
         }
 
         public void AlterarUsuario(string cpf, string estado, string perfil)
