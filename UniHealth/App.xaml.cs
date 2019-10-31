@@ -35,6 +35,7 @@ namespace UniHealth
             services.AddSingleton<IIMCRepository, IMCRepository>();
 
             services.AddSingleton<IUsuarioApplication, UsuarioApplication>();
+            services.AddSingleton<IAlimentoApplication, AlimentoApplication>();
         }
     }
 }

@@ -71,6 +71,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AdicionarAlimento.xaml.cs">
+      <DependentUpon>AdicionarAlimento.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AlterarUsuarios.xaml.cs">
       <DependentUpon>AlterarUsuarios.xaml</DependentUpon>
     </Compile>
@@ -86,6 +89,10 @@
     <Compile Include="Usuario.xaml.cs">
       <DependentUpon>Usuario.xaml</DependentUpon>
     </Compile>
+    <Page Include="AdicionarAlimento.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AlterarUsuarios.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -52,6 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Applications\AlimentoApplication.cs" />
+    <Compile Include="Applications\IAlimentoApplication.cs" />
     <Compile Include="Applications\IUsuarioApplication.cs" />
     <Compile Include="Applications\UsuarioApplication.cs" />
     <Compile Include="DbUniHealthContext.cs" />
@@ -83,6 +85,10 @@
     <Compile Include="Migrations\201910302149071_Fix_IMC.designer.cs">
       <DependentUpon>201910302149071_Fix_IMC.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910302351438_Add_Alimento.cs" />
+    <Compile Include="Migrations\201910302351438_Add_Alimento.designer.cs">
+      <DependentUpon>201910302351438_Add_Alimento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Alimento.cs" />
     <Compile Include="Models\AlimentoConsumido.cs" />
@@ -93,6 +99,8 @@
     <Compile Include="Models\StatusUsuario.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AlimentoRepository.cs" />
+    <Compile Include="Repositories\IAlimentoRepository.cs" />
     <Compile Include="Repositories\IIMCRepository.cs" />
     <Compile Include="Repositories\IMCRepository.cs" />
     <Compile Include="Repositories\IPerfilUsuarioRepository.cs" />
@@ -128,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910302149071_Fix_IMC.resx">
       <DependentUpon>201910302149071_Fix_IMC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910302351438_Add_Alimento.resx">
+      <DependentUpon>201910302351438_Add_Alimento.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

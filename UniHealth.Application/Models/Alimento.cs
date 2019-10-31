@@ -1,17 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace UniHealth.Application.Models
 {
-    class Alimento
+    public class Alimento
     {
         [Key]
-        int Id;
-        string Nome;
-        string CaloriaUnidade;
+        public int Id { get; set; }
+        public string Nome { get; set; }
+        public double CaloriaUnidade { get; set; }
+        public string Unidade { get; set; }
+
+        public Alimento() { }
+
+        public Alimento(string nome, double caloriaUnidade, string unidade)
+        {
+            Nome = nome;
+            CaloriaUnidade = caloriaUnidade;
+            Unidade = unidade;
+        }
     }
 }

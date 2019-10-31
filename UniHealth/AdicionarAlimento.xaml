@@ -1,0 +1,25 @@
+﻿<Window x:Class="UniHealth.AdicionarAlimento"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UniHealth"
+        mc:Ignorable="d"
+        Title="AdicionarAlimento" Height="289.113" Width="300.699">
+    <Grid Margin="0,0,0,2">
+        <Label x:Name="lblUnihealth" Content="UniHealth" Margin="67,9,0,0" VerticalAlignment="Top" FontSize="36" HorizontalAlignment="Left" Height="58" Width="168"/>
+        <Label x:Name="lblCadastro" Content="Adicionar Alimento" HorizontalAlignment="Left" Margin="48,72,0,0" VerticalAlignment="Top" FontSize="24" Height="42" Width="218"/>
+        <Label x:Name="lblNome" Content="Nome:" Margin="10,148,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="52"/>
+        <TextBox x:Name="txtNome" HorizontalAlignment="Left" Height="23" Margin="67,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217"/>
+        <Label x:Name="lblCaloriaUnidade" Content="Caloria por unidade:" Margin="10,184,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="129"/>
+        <TextBox x:Name="txtCaloriaUnidade" Height="23" Margin="130,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" HorizontalAlignment="Left"/>
+        <Button x:Name="btnAdicionar" Content="Adicionar" HorizontalAlignment="Left" Margin="142,228,0,0" Width="141" RenderTransformOrigin="0.547,2.6" Height="20" VerticalAlignment="Top" Click="BtnAdicionar_Click"/>
+        <Label x:Name="lblUnidade" Content="Unidade:" Margin="10,222,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="64"/>
+        <ComboBox x:Name="cmbUnidade" HorizontalAlignment="Left" Margin="68,224,0,0" VerticalAlignment="Top" Width="57" SelectedIndex="0" SelectedValuePath="Content">
+            <ComboBoxItem Content="g"/>
+            <ComboBoxItem Content="Kg"/>
+            <ComboBoxItem Content="ml"/>
+        </ComboBox>
+
+    </Grid>
+</Window>

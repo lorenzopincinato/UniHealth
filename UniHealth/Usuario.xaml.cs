@@ -23,7 +23,10 @@ namespace UniHealth
             InitializeComponent();
 
             if (usuario.PerfilUsuario.Tipo == "Comum")
+            {
                 btnAlterarUsuarios.Visibility = Visibility.Hidden;
+                btnAdicionarAlimentos.Visibility = Visibility.Hidden;
+            }
 
             lblNome.Content = $"Nome: {_usuario.Nome}";
             lblCPF.Content = $"CPF: {_usuario.CPF}";
@@ -75,6 +78,16 @@ namespace UniHealth
             }
 
             Mouse.OverrideCursor = null;
+        }
+
+        private void BtnCalorias_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnAdicionarAlimentos_Click(object sender, RoutedEventArgs e)
+        {
+            new AdicionarAlimento().Show();
         }
     }
 }

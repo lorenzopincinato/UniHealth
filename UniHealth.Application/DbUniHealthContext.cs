@@ -9,6 +9,7 @@ namespace UniHealth.Application
         public virtual DbSet<StatusUsuario> StatusUsuarios { get; set; }
         public virtual DbSet<PerfilUsuario> PerfilUsuarios { get; set; }
         public virtual DbSet<IMC> IMCs { get; set; }
+        public virtual DbSet<Alimento> Alimentos { get; set; }
 
         public DbUniHealthContext(string connectionString) : base(connectionString) { }
 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UniHealth"
         mc:Ignorable="d"
-        Title="Usuario" Height="376.512" Width="273.872" Activated="Window_Activated">
+        Title="Usuario" Height="407.179" Width="273.872" Activated="Window_Activated">
     <Grid>
         <Label x:Name="lblNome" Content="Nome:" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" Height="26" Width="246"/>
         <Label x:Name="lblCPF" Content="CPF:" HorizontalAlignment="Left" Margin="10,146,0,0" VerticalAlignment="Top" Height="26" Width="246"/>
@@ -17,6 +17,8 @@
         <Button x:Name="btnAlterarUsuarios" Content="Alterar Usuários" HorizontalAlignment="Left" Margin="138,287,0,0" VerticalAlignment="Top" Width="118" Click="BtnAlterarUsuarios_Click"/>
         <Label x:Name="lblIMC" Content="IMC: " HorizontalAlignment="Left" Margin="10,239,0,0" VerticalAlignment="Top" Height="26" Width="246"/>
         <Button x:Name="btnCalcularIMC" Content="Calcular IMC" HorizontalAlignment="Left" Margin="10,316,0,0" VerticalAlignment="Top" Width="104" Click="BtnCalcularIMC_Click"/>
+        <Button x:Name="btnCalorias" Content="Calcular Calorias Consumidas" HorizontalAlignment="Left" Margin="10,346,0,0" VerticalAlignment="Top" Width="246" Click="BtnCalorias_Click" />
+        <Button x:Name="btnAdicionarAlimentos" Content="Adicionar Alimentos" HorizontalAlignment="Left" Margin="138,316,0,0" VerticalAlignment="Top" Width="118" Click="BtnAdicionarAlimentos_Click" />
 
     </Grid>
 </Window>
