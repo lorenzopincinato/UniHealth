@@ -1,29 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace UniHealth.Application.Models
 {
-    class AlimentoConsumido
+    public class AlimentoConsumido
     {
         [Key]
-        int Id;
+        public int Id { get; set; }
 
-        string CPFUsuario;
-        Usuario Usuario;
+        public int UsuarioId { get; set; }
+        public Usuario Usuario { get; set; }
 
-        int IdRefeicao;
-        Refeicao Refeicao;
+        public string Refeicao { get; set; }
 
-        int IdAlimento;
-        Alimento Alimento;
+        public int AlimentoId { get; set; }
+        public Alimento Alimento { get; set; }
 
-        int UnidadesConsumidas;
-        DateTime Data;
+        public double UnidadesConsumidas { get; set; }
+        public DateTime Data { get; set; }
+
+        [NotMapped]
+        public double CaloriasConsumidas { get {return Alimento.CaloriaUnidade * UnidadesConsumidas; } }
+
+        public AlimentoConsumido() { }
+
+        public AlimentoConsumido(Usuario usuario, string refeicao, int alimentoId, double unidadesConsumidas)
+        {
+            Usuario = usuario;
+            Refeicao = refeicao;
+            AlimentoId = alimentoId;
+            UnidadesConsumidas = unidadesConsumidas;
+            Data = DateTime.Today;
+        }
     }
+
+
 
     //AlimentoConsumido.Alimento.CaloriaUnidade* AlimentoConsumido.UnidadesConsumidas
 

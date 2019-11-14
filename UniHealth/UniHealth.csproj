@@ -86,6 +86,9 @@
     <Compile Include="CalculoIMC.xaml.cs">
       <DependentUpon>CalculoIMC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CaloriasConsumidas.xaml.cs">
+      <DependentUpon>CaloriasConsumidas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Usuario.xaml.cs">
       <DependentUpon>Usuario.xaml</DependentUpon>
     </Compile>
@@ -106,6 +109,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CalculoIMC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CaloriasConsumidas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

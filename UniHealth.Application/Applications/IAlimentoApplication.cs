@@ -9,5 +9,6 @@ namespace UniHealth.Application.Applications
     public interface IAlimentoApplication
     {
         void AddAlimento(string nome, double caloriaUnidade, string unidade);
+        List<Models.Alimento> GetAllAlimentos();
     }
 }

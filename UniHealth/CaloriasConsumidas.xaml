@@ -1,0 +1,40 @@
+﻿<Window x:Class="UniHealth.CaloriasConsumidas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UniHealth"
+        mc:Ignorable="d"
+        Title="CaloriasConsumidas" Height="350.579" Width="338.782">
+    <Grid HorizontalAlignment="Left" Width="329">
+        <Label x:Name="lblCadastro" Content="Calculo Calorias Consumidas" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="24" Height="42" Width="329"/>
+        <Label x:Name="lblNome" Content="Alimento:" Margin="10,57,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="64"/>
+        <Label x:Name="lblUnidadesConsumidas" Content="Unidades consumidas:" Margin="10,134,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="129"/>
+        <TextBox x:Name="txtUnidadesConsumidas" Height="23" Margin="144,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" HorizontalAlignment="Left"/>
+        <Button x:Name="btnAdicionar" Content="Adicionar" HorizontalAlignment="Left" Margin="10,172,0,0" Width="312" RenderTransformOrigin="0.547,2.6" Height="20" VerticalAlignment="Top" Click="BtnAdicionar_Click"/>
+        <ComboBox x:Name="cmbAlimentos" HorizontalAlignment="Left" Margin="74,61,0,0" VerticalAlignment="Top" Width="248" SelectedIndex="0" SelectedValuePath="Content" DisplayMemberPath="Nome" SelectionChanged="CmbAlimentos_SelectionChanged" DropDownClosed="CmbAlimentos_DropDownClosed">
+        </ComboBox>
+        <Label x:Name="lblRefeicao" Content="Refeicao:" Margin="10,97,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="64"/>
+        <ComboBox x:Name="cmbRefeicao" HorizontalAlignment="Left" Margin="74,101,0,0" VerticalAlignment="Top" Width="248" SelectedIndex="0" SelectedValuePath="Content" >
+            <ComboBoxItem Content="Café da Manhã"/>
+            <ComboBoxItem Content="Almoço"/>
+            <ComboBoxItem Content="Café da Tarde"/>
+            <ComboBoxItem Content="Janta"/>
+        </ComboBox>
+        <Label x:Name="lblManha" Content="Café da Manhã: " Margin="10,206,0,0" HorizontalAlignment="Left" Width="312" Height="29" VerticalAlignment="Top"/>
+        <Label x:Name="lblAlmoco" Content="Almoço: " Margin="10,232,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="312"/>
+        <Label x:Name="lblTarde" Content="Café da Tarde: " Margin="10,258,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="324" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.022"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="lblJanta" Content="Janta: " Margin="10,284,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="312"/>
+        <Label x:Name="lblUnidade" Content="mg" HorizontalAlignment="Left" Margin="296,136,0,0" VerticalAlignment="Top" Width="38"/>
+
+    </Grid>
+</Window>

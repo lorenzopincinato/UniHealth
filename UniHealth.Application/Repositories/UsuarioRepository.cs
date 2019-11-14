@@ -6,11 +6,10 @@ namespace UniHealth.Application.Repositories
 {
     public class UsuarioRepository : IUsuarioRepository
     {
-        protected DbUniHealthContext _dbContext;
+        protected DbUniHealthContext _dbContext = new DbUniHealthContext();
 
-        public UsuarioRepository(DbUniHealthContext dataContext)
+        public UsuarioRepository()
         {
-            _dbContext = dataContext;
         }
 
         public Usuario GetUsuarioByCPF(string cpf)

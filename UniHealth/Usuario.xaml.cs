@@ -82,7 +82,7 @@ namespace UniHealth
 
         private void BtnCalorias_Click(object sender, RoutedEventArgs e)
         {
-
+            new CaloriasConsumidas(_usuario.CPF).Show();
         }
 
         private void BtnAdicionarAlimentos_Click(object sender, RoutedEventArgs e)
