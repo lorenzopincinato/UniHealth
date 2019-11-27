@@ -83,6 +83,9 @@
     <Compile Include="Cadastro.xaml.cs">
       <DependentUpon>Cadastro.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CalculoConsumorDiario.xaml.cs">
+      <DependentUpon>CalculoConsumorDiario.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CalculoIMC.xaml.cs">
       <DependentUpon>CalculoIMC.xaml</DependentUpon>
     </Compile>
@@ -105,6 +108,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Cadastro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CalculoConsumorDiario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

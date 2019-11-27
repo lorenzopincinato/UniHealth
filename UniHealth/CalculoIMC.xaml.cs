@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using UniHealth.Application.Applications;
 using UniHealth.Application.Models;
+using UniHealth.Application.Utils;
 
 namespace UniHealth
 {
@@ -34,15 +35,15 @@ namespace UniHealth
 
         private void BtnCalcularIMC_Click(object sender, RoutedEventArgs e)
         {
-            if (!double.TryParse(txtPeso.Text, out var peso))
+            if (!double.TryParse(txtPeso.Text, out var peso) || peso <= 0)
             {
-                MostrarMensagemErro(Title, "O peso deve ser um número!");
+                MostrarMensagemErro(Title, "O peso deve ser um número e maior que zero!");
                 txtPeso.Clear();
                 txtPeso.Focus();
             }
             else
             {
-                if (!double.TryParse(txtAltura.Text, out var altura))
+                if (!double.TryParse(txtAltura.Text, out var altura) || altura <= 0)
                 {
                     MostrarMensagemErro(Title, "A altura deve ser um número!");
                     txtAltura.Clear();
@@ -52,7 +53,7 @@ namespace UniHealth
                 {
                     var imc = _usuarioApplication.CalcIMC(double.Parse(txtPeso.Text), double.Parse(txtAltura.Text), _cpf);
 
-                    MessageBox.Show("O IMC é " + imc.IMCCalculado.ToString("#.##"), Title, MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show($"O IMC é {imc.IMCCalculado.ToString("#.##")}, {IMCUtils.GetFaixaDeIMC(imc.IMCCalculado)}", Title, MessageBoxButton.OK, MessageBoxImage.Information);
 
                     Close();
                 }

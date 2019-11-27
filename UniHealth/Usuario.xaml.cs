@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Input;
 using UniHealth.Application.Applications;
+using UniHealth.Application.Utils;
 
 namespace UniHealth
 {
@@ -34,7 +35,7 @@ namespace UniHealth
             lblPerfil.Content = $"Perfil: {_usuario.PerfilUsuario.Tipo}";
             if (_imc != null)
             {
-                lblIMC.Content = $"IMC: {_imc.IMCCalculado.ToString("#.##")} (Calculado em {_imc.DataCalculo.ToString("dd/MM/yyyy")})";
+                lblIMC.Content = $"IMC: {_imc.IMCCalculado.ToString("#.##")} {IMCUtils.GetFaixaDeIMC(_imc.IMCCalculado)}";
             }
             else
             {
@@ -70,7 +71,7 @@ namespace UniHealth
             lblPerfil.Content = $"Perfil: {_usuario.PerfilUsuario.Tipo}";
             if (_imc != null)
             {
-                lblIMC.Content = $"IMC: {_imc.IMCCalculado.ToString("#.##")} (Calculado em {_imc.DataCalculo.ToString("dd/MM/yyyy")})";
+                lblIMC.Content = $"IMC: {_imc.IMCCalculado.ToString("#.##")} {IMCUtils.GetFaixaDeIMC(_imc.IMCCalculado)}";
             }
             else
             {
@@ -88,6 +89,11 @@ namespace UniHealth
         private void BtnAdicionarAlimentos_Click(object sender, RoutedEventArgs e)
         {
             new AdicionarAlimento().Show();
+        }
+
+        private void BtnConsumoIdeal_Click(object sender, RoutedEventArgs e)
+        {
+            new CalculoConsumorDiario().Show();
         }
     }
 }

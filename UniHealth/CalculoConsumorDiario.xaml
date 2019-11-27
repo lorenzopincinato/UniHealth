@@ -1,0 +1,34 @@
+﻿<Window x:Class="UniHealth.CalculoConsumorDiario"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UniHealth"
+        mc:Ignorable="d"
+        Title="CalculoConsumorDiario" Height="341.86" Width="363.857">
+    <Grid>
+        <Label x:Name="lblUnihealth" Content="UniHealth" Margin="102,10,0,0" VerticalAlignment="Top" FontSize="36" HorizontalAlignment="Left" Height="58" Width="168"/>
+        <Label x:Name="lblCadastro" Content="Consumo Ideal de Calorias" HorizontalAlignment="Left" Margin="37,72,0,0" VerticalAlignment="Top" FontSize="24" Height="42" Width="294"/>
+        <Label x:Name="lblPeso" Content="Peso:" Margin="10,138,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="38"/>
+        <TextBox x:Name="txtPeso" Height="23" Margin="53,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="76" HorizontalAlignment="Left"/>
+        <Label x:Name="lblAltura" Content="Altura:" Margin="193,142,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="45"/>
+        <TextBox x:Name="txtAltura" Height="23" Margin="243,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="96" HorizontalAlignment="Left"/>
+        <Label x:Name="lblIdade" Content="Idade:" Margin="10,177,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="45"/>
+        <TextBox x:Name="txtIdade" Height="23" Margin="55,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="74" HorizontalAlignment="Left"/>
+        <Label x:Name="lblSexo" Content="Sexo:" Margin="193,179,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="64"/>
+        <ComboBox x:Name="cmbSexo" HorizontalAlignment="Left" Margin="234,181,0,0" VerticalAlignment="Top" Width="105" SelectedIndex="0" SelectedValuePath="Content">
+            <ComboBoxItem Content="Feminino"/>
+            <ComboBoxItem Content="Masculino"/>
+        </ComboBox>
+        <Label x:Name="lblIdade_Copy" Content="Nível de atividade física:" Margin="10,216,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="138"/>
+        <ComboBox x:Name="cmbAtividade" HorizontalAlignment="Left" Margin="10,247,0,0" VerticalAlignment="Top" Width="336" SelectedIndex="0" SelectedValuePath="Content">
+            <ComboBoxItem Content="Pouco ou nenhum exercício"/>
+            <ComboBoxItem Content="Pouco exercício (1 a 3 dias por semana)"/>
+            <ComboBoxItem Content="Exercício moderado (3 a 5 dias por semana)"/>
+            <ComboBoxItem Content="Exercício intenso (6 a 7 dias por semana)"/>
+            <ComboBoxItem Content="Exercício muito intenso (2 vezes por dia ou treino pesado)"/>
+        </ComboBox>
+        <Button x:Name="btnCalcular" Content="Calcular" HorizontalAlignment="Left" Margin="147,281,0,0" VerticalAlignment="Top" Width="75" Click="BtnCalcular_Click"/>
+
+    </Grid>
+</Window>
